@@ -72,6 +72,7 @@ class Register extends React.Component {
     this.state = {
       phone_number: null,
       password: null,
+      otp: null,
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
@@ -84,6 +85,7 @@ class Register extends React.Component {
     var body = {
       phone_number: this.state.phone_number,
       password: this.state.password,
+      otp: this.state.otp,
     };
     console.log(body);
     // fetch("api_link", {
@@ -100,6 +102,7 @@ class Register extends React.Component {
         <form onSubmit={this.submitHandler}>
           <input id="phone_number" onChange={this.changeHandler} placeholder="Phone Number" />
           <input id="password" onChange={this.changeHandler} placeholder="Password" />
+          <input id="otp" onChange={this.changeHandler} placeholder="OTP" />
           <button>Register</button>
         </form>
       </div>
