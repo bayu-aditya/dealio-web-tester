@@ -43,7 +43,17 @@ class Login extends React.Component {
     // .then(json => {console.log(json)});
   }
   googleLoginHandler(response) {
-    console.log(response);
+    let body = {
+      "access_token": response.getAuthResponse().access_token,
+    }
+    console.log(body);
+    fetch("http://localhost:3000/auth/google", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(body),
+    })
+    .then(resp => {return resp.json()})
+    .then(json => {console.log(json)});
   }
   render() {
     return (
